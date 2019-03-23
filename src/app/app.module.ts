@@ -6,7 +6,7 @@ const firebaseConfig = APIKeys.firebaseConfig;
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -27,14 +27,19 @@ import {
 } from '@angular/material';
 
 import {HttpClientModule} from '@angular/common/http';
+import { SavedArticlesComponent } from './saved-articles/saved-articles.component';
+import { SearchArticlesComponent } from './search-articles/search-articles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    SavedArticlesComponent,
+    SearchArticlesComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(firebaseConfig),

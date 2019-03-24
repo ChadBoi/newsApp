@@ -1,5 +1,6 @@
 <mat-toolbar color="primary" class="appToolbar">
   <div class="nav-container">
+    <button class="btn nav-button saved-button" *ngIf="auth.loggedIn" mat-button (click)="dashNav()">Breaking Articles</button>
     <button class="btn nav-button saved-button" *ngIf="auth.loggedIn" mat-button (click)="saveNav()">Saved Articles</button>
     <button class="btn nav-button" *ngIf="auth.loggedIn" mat-button (click)="searchNav()">Search Articles</button>
   </div>

@@ -22,6 +22,10 @@ export class AppComponent {
     this.router.navigate(['saved']);
   }
 
+  dashNav() {
+    this.router.navigate(['dashboard']);
+  }
+
   searchNav() {
     this.router.navigate(['search']);
   }

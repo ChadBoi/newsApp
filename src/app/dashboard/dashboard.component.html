@@ -9,6 +9,7 @@
       <mat-card-content>{{article.description}}</mat-card-content>
       <mat-card-footer class="card-footer">
         <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
+        <button class="btn save-button" mat-raised-button color="accent" (click)="this.myFirestore.saveArticle(article)">Save Article</button>
       </mat-card-footer>
     </mat-card>
   </div>

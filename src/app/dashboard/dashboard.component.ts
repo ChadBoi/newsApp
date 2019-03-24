@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsAPIService } from '../services/news-api.service';
 import { Article } from '../interfaces/article';
+import { FirestoreService } from '../services/firestore.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   newsArticles: Article[] = [];
 
-  constructor(private newsAPI: NewsAPIService) { }
+  constructor(private newsAPI: NewsAPIService, private myFirestore: FirestoreService) { }
 
   ngOnInit() {
     this.newsAPI.requestNews().subscribe(data => {
@@ -20,9 +21,8 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-  logArticles() {
-    console.log(this.newsArticles);
-  }
+
+
 
 
 

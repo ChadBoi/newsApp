@@ -1,22 +1,30 @@
-<div class="news-container">
-  <div *ngFor="let article of newsArticles">
-    <mat-card class="news-card">
-      <mat-card-header>
-        <mat-card-title>{{article.title}}</mat-card-title>
-        <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src={{article.urlToImage}} alt="News Thumbnail">
-      <mat-card-content>{{article.description}}</mat-card-content>
-      <mat-card-footer class="card-footer">
-        <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
-        <button class="btn save-button" mat-raised-button color="accent" (click)="this.myFirestore.saveArticle(article)">Save Article</button>
-      </mat-card-footer>
-    </mat-card>
+<div class="page-container">
+  <mat-form-field>
+    <mat-select class="select-category" placeholder="Select Category" [(ngModel)]="selectedCategory" (selectionChange)="printCategory()">
+      <mat-option [value]="categoryArray[0]">business</mat-option>
+      <mat-option [value]="categoryArray[1]">general</mat-option>
+      <mat-option [value]="categoryArray[2]">health</mat-option>
+      <mat-option [value]="categoryArray[3]">entertainment</mat-option>
+      <mat-option [value]="categoryArray[4]">science</mat-option>
+      <mat-option [value]="categoryArray[5]">sports</mat-option>
+      <mat-option [value]="categoryArray[6]">technology</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button class="btn save-button" mat-raised-button color="primary" (click)="newNews()">Search News</button>
+  <div class="news-container">
+    <div *ngFor="let article of newsArticles">
+      <mat-card class="news-card">
+        <mat-card-header>
+          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{article.urlToImage}} alt="News Thumbnail">
+        <mat-card-content>{{article.description}}</mat-card-content>
+        <mat-card-footer class="card-footer">
+          <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
+          <button class="btn save-button" mat-raised-button color="accent" (click)="this.myFirestore.saveArticle(article)">Save Article</button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
   </div>
-
-
-  <!-- <mat-card class="news-card">
-  <mat-card-title>{{this.newsAPIService.articles[0]}}</mat-card-title>
-  <span>Placeholder Text</span>
-</mat-card> -->
 </div>

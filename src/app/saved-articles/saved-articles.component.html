@@ -1,3 +1,40 @@
-<p>
-  saved-articles works!
-</p>
+
+
+<div class="page-container">
+  <div class="title-container">
+    <span class="my-saved">My Saved Articles</span>
+    <div class="saved-container">
+      <div *ngFor="let article of myArticles">
+        <mat-card class="news-card">
+          <mat-card-header>
+            <mat-card-title>{{article.title}}</mat-card-title>
+            <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src={{article.urlToImage}} alt="News Thumbnail">
+          <mat-card-content>{{article.description}}</mat-card-content>
+          <mat-card-footer class="card-footer">
+            <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
+            <button class="btn save-button" mat-raised-button color="accent" (click)="this.myFirestore.removeArticle(article)">Remove Article</button>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="title-container">
+    <span class="my-saved">Most Saved Articles</span>
+    <div class="most-saved-container">
+      <div *ngFor="let article of mostSavedArticles">
+        <mat-card class="news-card">
+          <mat-card-header>
+            <mat-card-title>{{article.title}}</mat-card-title>
+            <mat-card-subtitle>{{article.savedCount}} Saves</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src={{article.urlToImage}} alt="News Thumbnail">
+          <mat-card-footer class="card-footer">
+            <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

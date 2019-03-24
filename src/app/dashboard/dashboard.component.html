@@ -1,5 +1,17 @@
 <div class="news-container">
-  <button class="login-button" mat-raised-button color="primary" (click)="logArticles()">Get Articles</button>
+  <div *ngFor="let article of newsArticles">
+    <mat-card class="news-card">
+      <mat-card-header>
+        <mat-card-title>{{article.title}}</mat-card-title>
+        <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src={{article.urlToImage}} alt="News Thumbnail">
+      <mat-card-content>{{article.description}}</mat-card-content>
+      <mat-card-footer class="card-footer">
+        <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 
 
   <!-- <mat-card class="news-card">

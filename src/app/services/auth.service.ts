@@ -9,14 +9,16 @@ import { auth } from 'firebase/app';
 export class AuthService {
   loggedIn: boolean = false;
   userName: string = '';
+  avatarUrl: string = '';
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
   signInPopupGoogle() {
     return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
-  saveUserData(user) {
+  saveUserData(user, avatar) {
     this.userName = user;
+    this.avatarUrl = avatar;
     this.loggedIn = true;
   }
 
@@ -26,5 +28,9 @@ export class AuthService {
       this.loggedIn = false;
       this.router.navigate(['login']);
     });
+  }
+
+  getAvatar() {
+    return this.avatarUrl;
   }
 }

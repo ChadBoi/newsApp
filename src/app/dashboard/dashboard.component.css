@@ -1,0 +1,14 @@
+.news-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.news-card{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

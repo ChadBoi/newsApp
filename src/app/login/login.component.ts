@@ -14,12 +14,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginWithGoogle() {
-    this.authService.signInPopupGoogle()
+  async loginWithGoogle() {
+    await this.authService.signInPopupGoogle()
       .then(data => {
-        this.authService.saveUserData(data.user.displayName);
-        this.router.navigate(['dashboard']);
+        this.authService.saveUserData(data.user.displayName, data.user.photoURL);
       });
+    this.router.navigate(['dashboard']);
   }
 
 }

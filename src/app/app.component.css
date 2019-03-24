@@ -1,0 +1,33 @@
+.homeIcon {
+  cursor: pointer;
+}
+
+.appToolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user{
+  display: flex;
+  flex-direction: row;
+}
+
+.title{
+  margin-bottom: 0px;
+  font-size: 20px;
+  vertical-align: center;
+}
+
+.logout-button{
+  font-size: 20px;
+}
+
+.login-button {
+  font-size: 20px;
+}
+
+.avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

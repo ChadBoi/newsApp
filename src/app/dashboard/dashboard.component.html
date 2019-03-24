@@ -1,16 +1,18 @@
 <div class="page-container">
-  <mat-form-field>
-    <mat-select class="select-category" placeholder="Select Category" [(ngModel)]="selectedCategory" (selectionChange)="printCategory()">
-      <mat-option [value]="categoryArray[0]">business</mat-option>
-      <mat-option [value]="categoryArray[1]">general</mat-option>
-      <mat-option [value]="categoryArray[2]">health</mat-option>
-      <mat-option [value]="categoryArray[3]">entertainment</mat-option>
-      <mat-option [value]="categoryArray[4]">science</mat-option>
-      <mat-option [value]="categoryArray[5]">sports</mat-option>
-      <mat-option [value]="categoryArray[6]">technology</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button class="btn save-button" mat-raised-button color="primary" (click)="newNews()">Search News</button>
+  <div class="form-container">
+    <mat-form-field>
+      <mat-select class="select-category" placeholder="Select Category" [(ngModel)]="selectedCategory" (selectionChange)="printCategory()">
+        <mat-option [value]="categoryArray[0]">business</mat-option>
+        <mat-option [value]="categoryArray[1]">general</mat-option>
+        <mat-option [value]="categoryArray[2]">health</mat-option>
+        <mat-option [value]="categoryArray[3]">entertainment</mat-option>
+        <mat-option [value]="categoryArray[4]">science</mat-option>
+        <mat-option [value]="categoryArray[5]">sports</mat-option>
+        <mat-option [value]="categoryArray[6]">technology</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button class="btn category-button" mat-raised-button color="primary" (click)="newNews()">Search News</button>
+  </div>
   <div class="news-container">
     <div *ngFor="let article of newsArticles">
       <mat-card class="news-card">

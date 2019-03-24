@@ -11,12 +11,12 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
   categoryArray: string[] = ['business',
-  'general',
-  'health',
-  'entertainment',
-  'science',
-  'sports',
-  'technology']
+    'general',
+    'health',
+    'entertainment',
+    'science',
+    'sports',
+    'technology'];
   newsArticles: Article[] = [];
   selectedCategory = new FormControl();
   constructor(private newsAPI: NewsAPIService, private myFirestore: FirestoreService) { }

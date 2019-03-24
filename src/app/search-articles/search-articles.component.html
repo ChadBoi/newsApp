@@ -1,3 +1,24 @@
-<p>
-  search-articles works!
-</p>
+<div class="page-container">
+  <div class="form-container">
+    <mat-form-field [(ngModel)]="search" ngDefaultControl>
+      <input matInput placeholder="Search">
+    </mat-form-field>
+    <button class="btn category-button" mat-raised-button color="primary" (click)="searchNews()">Search News</button>
+  </div>
+  <div class="news-container">
+    <div *ngFor="let article of newsArticles">
+      <mat-card class="news-card">
+        <mat-card-header>
+          <mat-card-title>{{article.title}}</mat-card-title>
+          <mat-card-subtitle>{{article.author}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src={{article.urlToImage}} alt="News Thumbnail">
+        <mat-card-content>{{article.description}}</mat-card-content>
+        <mat-card-footer class="card-footer">
+          <a mat-raised-button target="_blank" color="primary" href={{article.url}}>Read More</a>
+          <button class="btn save-button" mat-raised-button color="accent" (click)="this.myFirestore.saveArticle(article)">Save Article</button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>

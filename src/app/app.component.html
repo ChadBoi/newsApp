@@ -1,13 +1,15 @@
 <mat-toolbar color="primary" class="appToolbar">
-  <mat-icon class="homeIcon" (click)="homePage()">home</mat-icon>
+  <div class="nav-container">
+    <button class="btn nav-button saved-button" *ngIf="auth.loggedIn" mat-button (click)="saveNav()">Saved Articles</button>
+    <button class="btn nav-button" *ngIf="auth.loggedIn" mat-button (click)="searchNav()">Search Articles</button>
+  </div>
   <div class="buttonContainer">
-    <button class="btn login-button" *ngIf="!auth.loggedIn" mat-button (click)="loginNav()">Sign In</button>
+    <button class="btn nav-button" *ngIf="!auth.loggedIn" mat-button (click)="loginNav()">Sign In</button>
     <div class="user" *ngIf="auth.loggedIn">
       <img class="avatar"  src={{this.auth.getAvatar()}} alt="User Avatar">
-      <div class="mat-title">{{this.auth.userName}}</div>
-      <button class="btn logout-button" mat-button (click)="logout()">Sign Out</button>
+      <div class="title">{{this.auth.userName}}</div>
+      <button class="btn nav-button" mat-button (click)="logout()">Sign Out</button>
     </div>
-
   </div>
 </mat-toolbar>
 <router-outlet></router-outlet>

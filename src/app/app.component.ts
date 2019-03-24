@@ -18,6 +18,14 @@ export class AppComponent {
     this.router.navigate(['login']);
   }
 
+  saveNav() {
+    this.router.navigate(['saved']);
+  }
+
+  searchNav() {
+    this.router.navigate(['search']);
+  }
+
   logout() {
     this.auth.signOut();
   }
